@@ -1,0 +1,7 @@
+// User CVARs
+user	bool	dn_enabled = true;
+user	string	dn_font = "_NDS";
+user	float	dn_scale = 1.0;
+user	string	dn_color_neutral = "White";
+user	string	dn_color_strong = "Red";
+user	string	dn_color_weak = "Gray";
