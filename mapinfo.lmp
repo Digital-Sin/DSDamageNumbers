@@ -1,3 +1,4 @@
 GameInfo {
-	AddEventHandlers = "DamageNumberEvent"
+	AddEventHandlers = "DSDamNumEvent"
+	AddEventHandlers = "DSDamNumUtil"
 }

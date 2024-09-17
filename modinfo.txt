@@ -1,73 +1,59 @@
 = Mod Information =============================================
 
 	Title				: DSDamageNumbers
-	Release date		: 09/10/2024
+	Release date		: 09/13/2024
 	Mod Version			: 1.0.0
 	GZDoom Version		: g4.12.2
 	Author				: DigitalSin
-	Git Repo			: https://github.com/XaserAcheron/damnums
+	Git Repo			: https://github.com/Digital-Sin/DSDamageNumbers
 
 	Description			: A simple damage number mod created for
 						  GZDoom.
-
-= Copyright ===================================================
-	
-	MIT License
-
-	Copyright (c) 2024 DigitalSin
-
-	Permission is hereby granted, free of charge, to any person
-	obtaining a copy of this software and associated documentation
-	files (the "Software"), to deal in the Software without
-	restriction, including without limitation the rights to use, copy,
-	modify, merge, publish, distribute, sublicense, and/or sell copies
-	of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be
-	included in all copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
-	ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 = How to Modify ===============================================
-
+	
 	Replacing Font:
 		* Swap the sprites of the existing numbers to the
 		  new ones.
-		* Ensure the sprite names are exactly the same and
-		  offsets are set to (0,0) for proper alignment
+		! Ensure the sprite names are exactly the same and
+		  offsets are set to (0,0) for proper alignment.
 		* If done correctly, the font should be
 		  displayed correctly!
 	Adding Fonts:
-		* Add the number sprites to the "sprites" folder
+		* Add the number sprites to the "sprites" folder.
 		  ( preferrably in a subfolder )
-		* Ensure the sprite offsets are set to (0,0) for
-		  proper alignment
-		* Ensure the sprite naming convention is correct
+		! Ensure the sprite offsets are set to (0,0) for
+		  proper alignment.
+		! Ensure the sprite naming convention is correct
 		    ####N0:
 			  * #### = Sprite name
 			  * N = Frame number ( A-J = 0-9 )
 			  * 0 = Rotation ( Keep as 0 )
-		* Sprites must be loaded into data in some way,
+		! Sprites must be loaded into data in some way,
 		  so open "scripts/class_damnum.zs" and add the
-		  sprite name to the "List" section. ( #### A -1; )
-		* Open "menudef.lmp" and add the sprite name to the
+		  sprite name to the "List" section of the
+		  "DSDamNum" class. ( #### A -1; )
+		! In "menudef.lmp", add the sprite name to the
 		  "DamNumFont" OptionString section followed by it's
-		  name. ( "####", "Font Name" )
-		* If all steps are done correctly, your
-		  new font should be selectable in the settings!
+		  display name. ( "####", "Font Name" )
+		* If done correctly, your new font should be
+		  selectable in the settings!
 	Adding Font Colors:
 		* In "trnslate.lmp", add your desired color name
 		  followed by it's value like so:
-		    Color = "0:255=%[0,0,0]:[R.RR, G.GG, B.BB]"
+		    Name = "0:255=%[0,0,0]:[R.RR, G.GG, B.BB]"
 		    ( RGB values are 0.00 - 1.00 )
-		* In "menudef.lmp", add your color name to the
+		! In "menudef.lmp", add your color name to the
 		  "DamNumColor" OptionString section. ( "Name", "Name" )
+	Customizing the "Types" color mode:
+		? The "Types" color mode associates a color with
+		  a given DamageType.
+		* In "event_damnum.zs", inside "OnRegister" under
+		  the "DSDamNumUtil" class, add the following:
+		    ColorTypes.Insert("DamageType", "Color");
+			  * "DamageType" = DamageType name from MAPINFO lump
+			  * "Color" = Color name from TRNSLATE lump
+		* If done correctly, colors should properly display
+		  upon selecting the "Type" mode in settings.
 
 ===============================================================

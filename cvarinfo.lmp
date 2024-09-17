@@ -1,7 +1,9 @@
 // User CVARs
-user	bool	dn_enabled = true;
-user	string	dn_font = "_NDS";
-user	float	dn_scale = 1.0;
-user	string	dn_color_neutral = "White";
-user	string	dn_color_strong = "Red";
-user	string	dn_color_weak = "Gray";
+server	bool	dn_enabled = true;
+server	int		dn_mode = 0;
+server	string	dn_font = "_NDS";
+server	string	dn_color_manual = "White";
+server	string	dn_color_neutral = "White";
+server	string	dn_color_strong = "Red";
+server	string	dn_color_weak = "Gray";
+server	float	dn_scale = 1.0;

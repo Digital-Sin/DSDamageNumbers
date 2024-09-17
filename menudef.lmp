@@ -1,25 +1,44 @@
+OptionString "DamNumMode" {
+	0, "Resistance"
+	1, "Type"
+	2, "Manual"
+}
+
 OptionString "DamNumFont" {
-	"_NDS", "Doom Small"
-	"_C11", "Doom Classic"
+	"_NDS", "Default"
 }
 
 OptionString "DamNumColor" {
 	"White", "White"
 	"Gray", "Gray"
-	"Gold", "Gold"
 	"Red", "Red"
+	"Orange", "Orange"
+	"Yellow", "Yellow"
+	"Green", "Green"
+	"Cyan", "Cyan"
+	"Blue", "Blue"
+	"Purple", "Purple"
+	"Pink", "Pink"
 }
 
 OptionMenu "DamNumOptions" {
-	Title 			"Damage Number Options"
 	StaticText 		"Damage Numbers", "Gold"
-	Option 			"Enabled", "dn_enabled", "OnOff"
-	Option 			"Font", "dn_font", "DamNumFont", "dn_enabled"
-	Slider 			"Number Scale", "dn_scale", 0.5, 1.5, 0.1, 2, "dn_enabled"
 	StaticText 		""
-	Option 			"Neutral Color", "dn_color_neutral", "DamNumColor", "dn_enabled"
-	Option 			"Strong Color", "dn_color_strong", "DamNumColor", "dn_enabled"
-	Option 			"Weak Color", "dn_color_weak", "DamNumColor", "dn_enabled"
+	Option 			"Enabled", "dn_enabled", "OnOff"
+	StaticText 		""
+	StaticText 		"Appearance", "White"
+	Option 			"Font", "dn_font", "DamNumFont"
+	Slider 			"Number Scale", "dn_scale", 0.5, 1.5, 0.1, 2
+	StaticText		""
+	StaticText 		"Color Mode", "White"
+	Option			"Mode", "dn_mode", "DamNumMode"
+	StaticText		""
+	StaticText 		"Resistance Mode", "White"
+	Option			"Color Strong", "dn_color_strong", "DamNumColor"
+	Option			"Color Neutral", "dn_color_neutral", "DamNumColor"
+	Option			"Color Weak", "dn_color_weak", "DamNumColor"
+	StaticText 		"Manual Mode", "White"
+	Option			"Color", "dn_color_manual", "DamNumColor"
 }
 
 AddOptionMenu "OptionsMenu" {
