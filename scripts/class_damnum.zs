@@ -27,7 +27,7 @@ class DSDamNum : Actor {
 		
 		RenderStyle							"Translucent";
 		Alpha								1.0;
-		Gravity								0.25;
+		Gravity								0.3;
 		
 		DSDamNum.Duration					15;
 	}
@@ -73,7 +73,7 @@ class DSDamTrack : Inventory {
 		Super.PostBeginPlay();
 		if (owner) {
 			// Set spawnheight for damage numbers
-			spawnheight = owner.height;
+			spawnheight = owner.default.height;
 		}
 	}
 	
@@ -119,7 +119,7 @@ class DSDamTrack : Inventory {
 				if (fac < facDam) { col = dn_color_weak; }
 				break;
 			case 1: // Types
-				DSDamNumUtil ev = DSDamNumUtil(StaticEventHandler.Find("DSDamNumUtil"));
+				DSDamNumEvent ev = DSDamNumEvent(StaticEventHandler.Find("DSDamNumEvent"));
 				if (ev) { col = ev.ColorTypes.Get(damageType); }
 				break;
 			case 2: // Color
@@ -131,14 +131,14 @@ class DSDamTrack : Inventory {
 		Array<Actor> nArray;
 		double nSize;
 		double rand = 3.5;
-		vector3 nPos = (0, fRandom(-Radius/rand, Radius/rand), (spawnheight * 0.75) + fRandom(-Radius/rand, Radius/rand));
+		vector3 nPos = (0, fRandom(-Radius/rand, Radius/rand), (spawnheight * 0.85) + fRandom(-Radius/rand, Radius/rand));
 		vector2 nVel = (fRandom(-45, 45), -45);
 		for (int i = 0; i < str.CodePointCount(); i++) {
 			Actor n = Spawn("DSDamNum", owner.pos + nPos);
 			// Face previous attacker
 			n.A_Face(attacker);
 			// Set number velocity
-			n.Vel3DFromAngle(2, n.angle + nVel.x, n.pitch + nVel.y);
+			n.Vel3DFromAngle(2.5, n.angle + nVel.x, n.pitch + nVel.y);
 			// Set sprite id
 			n.sprite = id;
 			// Set sprite frame

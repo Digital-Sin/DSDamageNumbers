@@ -49,7 +49,7 @@
 		? The "Types" color mode associates a color with
 		  a given DamageType.
 		* In "event_damnum.zs", inside "OnRegister" under
-		  the "DSDamNumUtil" class, add the following:
+		  the "DSDamNumEvent" class, add the following:
 		    ColorTypes.Insert("DamageType", "Color");
 			  * "DamageType" = DamageType name from MAPINFO lump
 			  * "Color" = Color name from TRNSLATE lump
