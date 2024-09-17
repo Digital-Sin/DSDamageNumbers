@@ -2,5 +2,8 @@
 
 	v1.0.0:
 		* Initial release.
+	v1.0.1:
+		* Added extra Doom, Hexen, and Strife fonts
+		* Fixed alignment for shifting sprites
 
 ===============================================================

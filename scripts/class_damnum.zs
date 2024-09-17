@@ -34,7 +34,11 @@ class DSDamNum : Actor {
 	
 	States {
 		List:
-			_NDS A -1; // Default Small
+			_NDL A -1; // Doom Large
+			_NDS A -1; // Doom Small
+			_NHL A -1; // Hexen Large
+			_NHS A -1; // Hexen Small
+			_NSN A -1; // Strife
 		Spawn:
 			#### A -1;
 			Stop;
@@ -133,6 +137,7 @@ class DSDamTrack : Inventory {
 		double rand = 3.5;
 		vector3 nPos = (0, fRandom(-Radius/rand, Radius/rand), (spawnheight * 0.85) + fRandom(-Radius/rand, Radius/rand));
 		vector2 nVel = (fRandom(-45, 45), -45);
+		int prevOffset = 0;
 		for (int i = 0; i < str.CodePointCount(); i++) {
 			Actor n = Spawn("DSDamNum", owner.pos + nPos);
 			// Face previous attacker
@@ -155,9 +160,10 @@ class DSDamTrack : Inventory {
 			// Get size of the sprite
 			int sizeX, sizeY; [sizeX, sizeY] = TexMan.GetSize(nTex);
 			// Shift sprite offset
-			double off = (sizeX * dn_scale) * i;
+			double off = (prevOffset * dn_scale) * i;
 			n.A_SpriteOffset(off, 0);
 			DSDamNum(n).offset = off;
+			prevOffset = sizeX;
 			// Add width to total size
 			nSize += sizeX;
 			// Add number to array

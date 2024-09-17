@@ -5,7 +5,11 @@ OptionString "DamNumMode" {
 }
 
 OptionString "DamNumFont" {
-	"_NDS", "Default"
+	"_NDL", "Doom Large"
+	"_NDS", "Doom Small"
+	"_NHL", "Hexen Large"
+	"_NHS", "Hexen Small"
+	"_NSN", "Strife"
 }
 
 OptionString "DamNumColor" {
