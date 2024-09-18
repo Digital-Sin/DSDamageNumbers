@@ -160,7 +160,6 @@ class DSDamTrack : Inventory {
 			int sizeX, sizeY; [sizeX, sizeY] = TexMan.GetSize(nTex);
 			// Shift sprite offset
 			double off = nSize * dn_scale;
-			Console.printf("%d", nSize);
 			n.A_SpriteOffset(off, 0);
 			DSDamNum(n).offset = off;
 			// Add width to total size
