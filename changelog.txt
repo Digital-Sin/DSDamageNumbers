@@ -5,5 +5,7 @@
 	v1.0.1:
 		* Added extra Doom, Hexen, and Strife fonts.
 		* Fixed alignment for shifting sprites.
+	v1.0.2:
+		* Fixed new alignment issue with larger numbers.
 
 ===============================================================

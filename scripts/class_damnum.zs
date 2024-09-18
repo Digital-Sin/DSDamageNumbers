@@ -137,7 +137,6 @@ class DSDamTrack : Inventory {
 		double rand = 3.5;
 		vector3 nPos = (0, fRandom(-Radius/rand, Radius/rand), (spawnheight * 0.85) + fRandom(-Radius/rand, Radius/rand));
 		vector2 nVel = (fRandom(-45, 45), -45);
-		int prevOffset = 0;
 		for (int i = 0; i < str.CodePointCount(); i++) {
 			Actor n = Spawn("DSDamNum", owner.pos + nPos);
 			// Face previous attacker
@@ -160,10 +159,10 @@ class DSDamTrack : Inventory {
 			// Get size of the sprite
 			int sizeX, sizeY; [sizeX, sizeY] = TexMan.GetSize(nTex);
 			// Shift sprite offset
-			double off = (prevOffset * dn_scale) * i;
+			double off = nSize * dn_scale;
+			Console.printf("%d", nSize);
 			n.A_SpriteOffset(off, 0);
 			DSDamNum(n).offset = off;
-			prevOffset = sizeX;
 			// Add width to total size
 			nSize += sizeX;
 			// Add number to array
